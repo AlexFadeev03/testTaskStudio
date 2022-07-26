@@ -1,0 +1,110 @@
+body input:not(.submit){
+  height: 30px;
+  outline: none;
+  color: #123;
+  border: solid 1px #949494;
+  border-radius: 4px;
+}
+
+input[type=text]:hover {
+  border: 1px solid #373636;
+
+}
+input:not(.submit){
+  width: 100%;
+}
+
+body h4{
+  margin-bottom: 10px;
+  font-weight: normal;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body h4:not(.not_required):after {
+  content:" *";
+  color: red;
+}
+
+body p{
+  font-size: 11px;
+  color: #767272;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+}
+.container{
+  padding-top: 25px;
+}
+
+.container_1{
+  max-width: 750px;
+  margin: auto;
+  font-family: Arial;
+}
+
+.container_2{
+  max-width: 830px;
+  margin: auto;
+}
+
+.form *{
+  flex: 3 0 auto;
+}
+
+.row{
+  display: flex;
+  flex-direction: row;
+  margin-top: 0;
+}
+
+.row>.row_part:first-child{
+  margin-right: 30px;
+}
+
+.form_address{
+  display: flex;
+  width: auto;
+  flex-direction: column;
+}
+
+.form_address>.street, .location{
+  margin-bottom:10px;
+}
+
+.phone_number{
+  margin-bottom:30px;
+}
+.half_bar{
+  width:48%;
+}
+
+/*.mail{*/
+/*  margin-bottom: 20px;*/
+/*}*/
+
+.line{
+  max-width: 950px;
+  width: 100%;
+  color: rgba(255, 255, 255, 0.76);
+  margin-top: 25px;
+  margin-bottom:25px;
+}
+
+.submit{
+  margin-left: 10px;
+  border: solid 2px #28da7c;
+  border-radius:4px;
+  width: 130px;
+  height: 35px;
+  color: #767272;
+  background: #ffffff;
+}
+
+

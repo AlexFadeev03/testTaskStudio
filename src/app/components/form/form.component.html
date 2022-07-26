@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Form</title>
+</head>
+<body>
+  <div class="container">
+    <div class="container_1">
+      <form action=""></form>
+
+      <div class="info">
+      <img src="https://media-exp1.licdn.com/dms/image/C560BAQEhDhmzV5gHww/company-logo_200_200/0/1519876265538?e=1666828800&v=beta&t=ToYj5yFE56ebz4mXYy3KLpboWSWZxlC4OOkoYl5VLsE"
+           alt="Not mine photo" class="avatar">
+      </div>
+
+      <div class="form">
+
+        <h4>Full Name</h4>
+        <div class="form_name row">
+          <div class="first_name row_part">
+            <input type="text" [(ngModel)]="testForm.f_name" name="first_name" required />
+            <p>First Name</p>
+          </div>
+
+          <div class="last_name row_part">
+            <input type="text" [(ngModel)]="testForm.l_name" name="last_name" required />
+            <p>Last Name</p>
+          </div>
+
+        </div>
+
+        <h4>Address</h4>
+        <div class="form_address">
+          <div class="street">
+            <input type="text" [(ngModel)]="testForm.street_l1" name="address_input_l1" required />
+            <p>Street Address</p>
+          </div>
+          <div class="street">
+            <input type="text" [(ngModel)]="testForm.street_l2" name="address_input_l2" required />
+            <p>Street Address Line 2</p>
+          </div>
+
+          <div class="location row">
+            <div class="city row_part">
+              <input type="text" [(ngModel)]="testForm.city" name="address_city" required />
+              <p>City</p>
+            </div>
+            <div class="state row_part">
+              <input type="text" [(ngModel)]="testForm.state" name="address_state" required />
+              <p>State / Province</p>
+            </div>
+          </div>
+          <div class="zip_code">
+            <input type="text" [(ngModel)]="testForm.zip_code" name="address_input_l2" required />
+            <p>Postal / Zip Code</p>
+          </div>
+        </div>
+
+        <h4>Phone Number</h4>
+        <div class="phone_number half_bar">
+          <input type="tel" name="phone" pattern="([0-9]{3}) [0-9]{3}-[0-9]{4}" required placeholder=" (000) 000-0000">
+        </div>
+
+        <h4 class="not_required">E-mail</h4>
+        <div class="mail half_bar">
+          <input type="email" name="email" placeholder=" ex: email@yahoo.com">
+          <p>example@example.com</p>
+        </div>
+      </div>
+    </div>
+    <div class="container_2">
+      <hr class="line">
+    </div>
+    <div class="container_1">
+      <input class="submit" type="submit" value="Submit" />
+    </div>
+  </div>
+</body>
+</html>
