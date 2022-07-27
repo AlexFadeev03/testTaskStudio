@@ -1,7 +1,7 @@
 body input:not(.submit){
   height: 30px;
   outline: none;
-  color: #123;
+  /*color: #123;*/
   border: solid 1px #949494;
   border-radius: 4px;
 }
@@ -10,6 +10,18 @@ input[type=text]:hover {
   border: 1px solid #373636;
 
 }
+
+input.ng-dirty.ng-touched.ng-invalid, input.ng-pristine.ng-touched.ng-invalid {
+  border-color: red;
+}
+input.ng-dirty.ng-touched.ng-valid, input.ng-pristine.ng-touched.ng-valid {
+  border-color: green;
+}
+.text-danger p{
+  color: red;
+  font-size: 9px;
+}
+
 input:not(.submit){
   width: 100%;
 }
@@ -105,6 +117,15 @@ body p{
   height: 35px;
   color: #767272;
   background: #ffffff;
+}
+
+.submit:visited{
+  background: #28c394;
+}
+.submit:hover{
+  transition-delay: 20ms;
+  background: #28c394;
+  color: aliceblue;
 }
 
 

@@ -10,74 +10,125 @@
 <body>
   <div class="container">
     <div class="container_1">
-      <form action=""></form>
+      <form [formGroup]="formComponent" (ngSubmit)="onSubmit()">
 
-      <div class="info">
-      <img src="https://media-exp1.licdn.com/dms/image/C560BAQEhDhmzV5gHww/company-logo_200_200/0/1519876265538?e=1666828800&v=beta&t=ToYj5yFE56ebz4mXYy3KLpboWSWZxlC4OOkoYl5VLsE"
-           alt="Not mine photo" class="avatar">
-      </div>
-
-      <div class="form">
-
-        <h4>Full Name</h4>
-        <div class="form_name row">
-          <div class="first_name row_part">
-            <input type="text" [(ngModel)]="testForm.f_name" name="first_name" required />
-            <p>First Name</p>
-          </div>
-
-          <div class="last_name row_part">
-            <input type="text" [(ngModel)]="testForm.l_name" name="last_name" required />
-            <p>Last Name</p>
-          </div>
-
+        <div class="info">
+        <img src="https://media-exp1.licdn.com/dms/image/C560BAQEhDhmzV5gHww/company-logo_200_200/0/1519876265538?e=1666828800&v=beta&t=ToYj5yFE56ebz4mXYy3KLpboWSWZxlC4OOkoYl5VLsE"
+             alt="Not 3301" class="avatar">
         </div>
 
-        <h4>Address</h4>
-        <div class="form_address">
-          <div class="street">
-            <input type="text" [(ngModel)]="testForm.street_l1" name="address_input_l1" required />
-            <p>Street Address</p>
-          </div>
-          <div class="street">
-            <input type="text" [(ngModel)]="testForm.street_l2" name="address_input_l2" required />
-            <p>Street Address Line 2</p>
-          </div>
+        <div class="form">
 
-          <div class="location row">
-            <div class="city row_part">
-              <input type="text" [(ngModel)]="testForm.city" name="address_city" required />
-              <p>City</p>
+          <h4>Full Name</h4>
+          <div class="form_name row">
+            <div class="first_name row_part">
+              <input type="text"  name="first_name" formControlName='firstName' [ngClass]="{'ng-touched': submitted}" required />
+              <p>First Name</p>
+<!--              <div *ngIf="(submitted || formComponent.controls['firstName'].touched) && formComponent.controls['firstName'].invalid" class="text-danger">-->
+<!--                  <p *ngIf="formComponent.controls['firstName'].touched && formComponent.controls['firstName'].errors?.['required']">First Name is required</p>-->
+<!--                  <p *ngIf="submitted && formComponent.controls['firstName'].errors?.['minlength']">First Name should have at least 2 characters</p>-->
+<!--                  <p *ngIf="submitted && formComponent.controls['firstName'].errors?.['pattern']">First Name should consist of alphanumeric characters</p>-->
+<!--              </div>-->
+              <div *ngIf="firstName?.invalid && (firstName?.touched || submitted) " class="text-danger">
+                <p *ngIf="firstName?.errors?.['required']">First Name is Required</p>
+                <p *ngIf="firstName?.errors?.['minlength']">First Name should have at least 2 characters</p>
+                <p *ngIf="firstName?.errors?.['pattern']">First Name should consist of alphanumeric characters</p>
+              </div>
             </div>
-            <div class="state row_part">
-              <input type="text" [(ngModel)]="testForm.state" name="address_state" required />
-              <p>State / Province</p>
+
+            <div class="last_name row_part">
+              <input type="text"  name="last_name" formControlName='lastName' [ngClass]="{'ng-touched': submitted}"  required />
+              <p>Last Name</p>
+              <div *ngIf="lastName?.invalid && (lastName?.touched || submitted) " class="text-danger">
+                <p *ngIf="lastName?.errors?.['required']">Last Name is Required</p>
+                <p *ngIf="lastName?.errors?.['minlength']">Last Name should have at least 2 characters</p>
+                <p *ngIf="lastName?.errors?.['pattern']">Last Name should consist of alphanumeric characters</p>
+              </div>
+            </div>
+
+          </div>
+
+          <h4>Address</h4>
+          <div class="form_address">
+            <div class="street">
+              <input type="text"  name="address_input_l1" formControlName='streetL1' [ngClass]="{'ng-touched': submitted}" required />
+              <p>Street Address</p>
+              <div *ngIf="streetL1?.invalid && (streetL1?.touched || submitted) " class="text-danger">
+                <p *ngIf="streetL1?.errors?.['required']">Street Address is Required</p>
+                <p *ngIf="streetL1?.errors?.['minlength']">Street Address should have at least 2 characters</p>
+                <p *ngIf="streetL1?.errors?.['pattern']">Street Address should consist of alphanumeric/numeral characters</p>
+              </div>
+            </div>
+            <div class="street">
+              <input type="text"  name="address_input_l2" formControlName='streetL2' [ngClass]="{'ng-touched': submitted}" required />
+              <p>Street Address Line 2</p>
+              <div *ngIf="streetL2?.invalid && (streetL2?.touched || submitted) " class="text-danger">
+                <p *ngIf="streetL2?.errors?.['required']">Street Address Line 2 is Required</p>
+                <p *ngIf="streetL2?.errors?.['minlength']">Street Address Line 2 should have at least 2 characters</p>
+                <p *ngIf="streetL2?.errors?.['pattern']">Street Address Line 2 should consist of alphanumeric/numeral characters</p>
+              </div>
+            </div>
+
+            <div class="location row">
+              <div class="city row_part">
+                <input type="text"  name="address_city" formControlName='city' [ngClass]="{'ng-touched': submitted}" required />
+                <p>City</p>
+                <div *ngIf="city?.invalid && (city?.touched || submitted) " class="text-danger">
+                  <p *ngIf="city?.errors?.['required']">City is Required</p>
+                  <p *ngIf="city?.errors?.['minlength']">City should have at least 2 characters</p>
+                  <p *ngIf="city?.errors?.['pattern']">City should consist of alphanumeric characters</p>
+                </div>
+              </div>
+              <div class="state row_part">
+                <input type="text"  name="address_state" formControlName='state' [ngClass]="{'ng-touched': submitted}" required />
+                <p>State / Province</p>
+                <div *ngIf="state?.invalid && (state?.touched || submitted) " class="text-danger">
+                  <p *ngIf="state?.errors?.['required']">State / Province is Required</p>
+                  <p *ngIf="state?.errors?.['minlength']">State / Province should have at least 2 characters</p>
+                  <p *ngIf="state?.errors?.['pattern']">State / Province should consist of alphanumeric characters</p>
+                </div>
+              </div>
+            </div>
+            <div class="zip_code">
+              <input type="text"  name="address_input_l2" formControlName='zipCode' [ngClass]="{'ng-touched': submitted}" required />
+              <p>Postal / Zip Code</p>
+              <div *ngIf="zipCode?.invalid && (zipCode?.touched || submitted) " class="text-danger">
+                <p *ngIf="zipCode?.errors?.['required']">Postal / Zip Code is Required</p>
+                <p *ngIf="zipCode?.errors?.['pattern']">Postal / Zip Code should consist of 5 numeral characters</p>
+              </div>
             </div>
           </div>
-          <div class="zip_code">
-            <input type="text" [(ngModel)]="testForm.zip_code" name="address_input_l2" required />
-            <p>Postal / Zip Code</p>
+
+          <h4>Phone Number</h4>
+          <div class="phone_number half_bar">
+            <input type="tel"  name="phone"  placeholder=" 000 000-0000" formControlName='phoneNum' [ngClass]="{'ng-touched': submitted}" required >
+            <div *ngIf="phoneNum?.invalid && (phoneNum?.touched || submitted) " class="text-danger">
+              <p *ngIf="phoneNum?.errors?.['required']">Phone Number is Required</p>
+              <p *ngIf="phoneNum?.errors?.['pattern']">Phone Number should be in <strong>000 000-0000</strong> format</p>
+            </div>
+          </div>
+
+          <h4 class="not_required">E-mail</h4>
+          <div class="mail half_bar">
+            <input type="email"  name="email" formControlName='email' [ngClass]="{'ng-touched': submitted }" placeholder=" ex: email@yahoo.com">
+            <p>example@example.com</p>
+            <div *ngIf="email?.invalid && (email?.touched || submitted) " class="text-danger">
+              <p *ngIf="email?.errors?.['email']">E-mail should not be yours or your psycho-friend's name. Type your email address</p>
+            </div>
           </div>
         </div>
-
-        <h4>Phone Number</h4>
-        <div class="phone_number half_bar">
-          <input type="tel" name="phone" pattern="([0-9]{3}) [0-9]{3}-[0-9]{4}" required placeholder=" (000) 000-0000">
-        </div>
-
-        <h4 class="not_required">E-mail</h4>
-        <div class="mail half_bar">
-          <input type="email" name="email" placeholder=" ex: email@yahoo.com">
-          <p>example@example.com</p>
-        </div>
-      </div>
+        <p>Form status: {{formComponent.status}}</p>
+      </form>
     </div>
     <div class="container_2">
       <hr class="line">
     </div>
     <div class="container_1">
-      <input class="submit" type="submit" value="Submit" />
+<!--      <input class="submit" (click)="printForm()" type="submit" value="Submit" />-->
+      <button  class="submit" (click)="onSubmit()">Submit</button>
     </div>
+<!--    [disabled]="formComponent.invalid"-->
+
   </div>
 </body>
 </html>
