@@ -32,6 +32,7 @@ export class FormComponent implements OnInit {
     // for (const [key, val] of Object.entries(this.formComponent.value)) {
     //   console.log(key, ': ', val)
     // }
+
     console.log(this.formComponent.value)
   }
 

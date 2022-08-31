@@ -29,6 +29,7 @@
 <!--                  <p *ngIf="submitted && formComponent.controls['firstName'].errors?.['minlength']">First Name should have at least 2 characters</p>-->
 <!--                  <p *ngIf="submitted && formComponent.controls['firstName'].errors?.['pattern']">First Name should consist of alphanumeric characters</p>-->
 <!--              </div>-->
+
               <div *ngIf="firstName?.invalid && (firstName?.touched || submitted) " class="text-danger">
                 <p *ngIf="firstName?.errors?.['required']">First Name is Required</p>
                 <p *ngIf="firstName?.errors?.['minlength']">First Name should have at least 2 characters</p>
