@@ -17,21 +17,22 @@ export class FormComponent implements OnInit {
 
   ngOnInit(): void {
     this.formComponent = this.fb.group({
-      firstName: [null, [Validators.required, Validators.pattern('[a-zA-Z]*'), Validators.minLength(2)]],
-      lastName: [null, [Validators.required, Validators.pattern('[a-zA-Z]*'), Validators.minLength(2)]],
-      streetL1: [null, [Validators.required, Validators.pattern('[a-zA-Z0-9]*'), Validators.minLength(2)]],
-      streetL2: [null, [Validators.required, Validators.pattern('[a-zA-Z0-9]*'), Validators.minLength(2)]],
-      city: [null, [Validators.required, Validators.pattern('[a-zA-Z]*'), Validators.minLength(2)]],
-      state: [null, [Validators.required, Validators.pattern('[a-zA-Z]*'), Validators.minLength(2)]],
+      firstName: [null, [Validators.required, Validators.pattern('[а-яА-ЯёЁa-zA-Z]*'), Validators.minLength(2)]],
+      lastName: [null, [Validators.required, Validators.pattern('[а-яА-ЯёЁa-zA-Z]*'), Validators.minLength(2)]],
+      streetL1: [null, [Validators.required, Validators.pattern('[а-яА-ЯёЁa-zA-Z0-9 ]*'), Validators.minLength(2)]],
+      streetL2: [null, [Validators.pattern('[а-яА-ЯёЁa-zA-Z0-9 ]*'), Validators.minLength(2)]],
+      city: [null, [Validators.required, Validators.pattern('[а-яА-ЯёЁa-zA-Z ]*'), Validators.minLength(2)]],
+      state: [null, [Validators.required, Validators.pattern('[а-яА-ЯёЁa-zA-Z ]*'), Validators.minLength(2)]],
       zipCode: [null, [Validators.required, Validators.pattern('[0-9]{5}'), Validators.minLength(5), Validators.maxLength(5)]],
-      phoneNum: [null, [Validators.required, Validators.pattern('[0-9]{3} [0-9]{3}-[0-9]{4}') ]],
+      phoneNum: [null, [Validators.required, Validators.pattern('[0-9 ]{10}')]],
       email: [null, Validators.email]})
   }
 
   printForm(){
-    for (const [key, val] of Object.entries(this.formComponent.value)) {
-      console.log(key, ': ', val)
-    }
+    // for (const [key, val] of Object.entries(this.formComponent.value)) {
+    //   console.log(key, ': ', val)
+    // }
+    console.log(this.formComponent.value)
   }
 
   onSubmit():void{

@@ -32,7 +32,7 @@
               <div *ngIf="firstName?.invalid && (firstName?.touched || submitted) " class="text-danger">
                 <p *ngIf="firstName?.errors?.['required']">First Name is Required</p>
                 <p *ngIf="firstName?.errors?.['minlength']">First Name should have at least 2 characters</p>
-                <p *ngIf="firstName?.errors?.['pattern']">First Name should consist of alphanumeric characters</p>
+                <p *ngIf="firstName?.errors?.['pattern']">First Name should consist of alphanumeric characters and have no spaces</p>
               </div>
             </div>
 
@@ -42,7 +42,7 @@
               <div *ngIf="lastName?.invalid && (lastName?.touched || submitted) " class="text-danger">
                 <p *ngIf="lastName?.errors?.['required']">Last Name is Required</p>
                 <p *ngIf="lastName?.errors?.['minlength']">Last Name should have at least 2 characters</p>
-                <p *ngIf="lastName?.errors?.['pattern']">Last Name should consist of alphanumeric characters</p>
+                <p *ngIf="lastName?.errors?.['pattern']">Last Name should consist of alphanumeric characters and have no spaces</p>
               </div>
             </div>
 
@@ -60,12 +60,11 @@
               </div>
             </div>
             <div class="street">
-              <input type="text"  name="address_input_l2" formControlName='streetL2' [ngClass]="{'ng-touched': submitted}" required />
+              <input type="text"  name="address_input_l2" formControlName='streetL2' [ngClass]="{'ng-touched': submitted}">
               <p>Street Address Line 2</p>
               <div *ngIf="streetL2?.invalid && (streetL2?.touched || submitted) " class="text-danger">
-                <p *ngIf="streetL2?.errors?.['required']">Street Address Line 2 is Required</p>
-                <p *ngIf="streetL2?.errors?.['minlength']">Street Address Line 2 should have at least 2 characters</p>
                 <p *ngIf="streetL2?.errors?.['pattern']">Street Address Line 2 should consist of alphanumeric/numeral characters</p>
+                <p *ngIf="streetL2?.errors?.['minlength']">Street Address Line 2 should have at least 2 characters</p>
               </div>
             </div>
 
@@ -104,7 +103,7 @@
             <input type="tel"  name="phone"  placeholder=" 000 000-0000" formControlName='phoneNum' [ngClass]="{'ng-touched': submitted}" required >
             <div *ngIf="phoneNum?.invalid && (phoneNum?.touched || submitted) " class="text-danger">
               <p *ngIf="phoneNum?.errors?.['required']">Phone Number is Required</p>
-              <p *ngIf="phoneNum?.errors?.['pattern']">Phone Number should be in <strong>000 000-0000</strong> format</p>
+              <p *ngIf="phoneNum?.errors?.['pattern']">Phone number should consist of 10 numbers
             </div>
           </div>
 
@@ -113,7 +112,7 @@
             <input type="email"  name="email" formControlName='email' [ngClass]="{'ng-touched': submitted }" placeholder=" ex: email@yahoo.com">
             <p>example@example.com</p>
             <div *ngIf="email?.invalid && (email?.touched || submitted) " class="text-danger">
-              <p *ngIf="email?.errors?.['email']">E-mail should not be yours or your psycho-friend's name. Type your email address</p>
+              <p *ngIf="email?.errors?.['email']">Type your email address</p>
             </div>
           </div>
         </div>

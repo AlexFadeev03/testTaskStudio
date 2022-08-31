@@ -60,6 +60,14 @@ body p{
   margin: auto;
   font-family: Arial;
 }
+.info{
+  display: flex;
+  justify-content: center;
+}
+.info>.avatar{
+  width: 70px;
+}
+
 
 .container_2{
   max-width: 830px;
